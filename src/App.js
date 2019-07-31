@@ -7,13 +7,20 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      quote: ''
+      quote: '',
+      isLoaded: false
     }
   }
   componentDidMount(){
     axios.get("https://api.github.com/zen").then(response => {
       console.log(response);
-      this.setState({ quote: response.data });
+
+      setTimeout(
+        function(){
+          this.setState({ quote: response.data, isLoaded: true });
+        }.bind(this),
+        3000
+      );
     })
   }
   render(){
@@ -30,7 +37,11 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {this.state.quote}
+            {this.state.isLoaded ? (
+              <div>{this.state.quote}</div>
+            ) : (
+              <p>Cargando...</p>
+            )}
           </a>
         </header>
       </div>
