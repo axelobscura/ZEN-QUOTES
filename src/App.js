@@ -24,14 +24,14 @@ class App extends Component {
       );
     })
   }
+  componentDidUpdate(){
+    console.log("INSIDE COMPONENT DID UPDATE");
+  }
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            ZEN DEVELOPER QUOTES
-          </p>
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -47,6 +47,9 @@ class App extends Component {
         </header>
         <GithubUserInfo username="facebook" />
         <GithubUserInfo username="axelobscura" />
+        <GithubUserInfo username="colt" />
+        <GithubUserInfo username="gaearon" />
+        <GithubUserInfo username="sophiebits" />
       </div>
     );
   }

@@ -27,7 +27,9 @@ class GithubUserInfo extends Component {
   render() { 
     return (
       <div>
+        <img src={this.state.imgUrl} alt={this.state.name}/>
         <h1>{this.state.name}</h1>
+        <p>{this.state.bio}<br/>{this.state.company}</p>
       </div>
     );
   }
